@@ -4,6 +4,7 @@ import {
   getAuth,
   signInWithEmailAndPassword,
   onAuthStateChanged as onAuthStateChangedFirebase,
+  signOut as signOutFirebase,
 } from 'firebase/auth';
 
 export const getAuthErrorMessages = (errorCode) => {
@@ -38,3 +39,7 @@ export const signUp = async ({ email, password }) => {
 export const onAuthStateChanged = (callback) => {
   return onAuthStateChangedFirebase(getAuth(), callback);
 };
+
+export const signOut = async() => {
+  await signOutFirebase(getAuth())
+}

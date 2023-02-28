@@ -1,17 +1,24 @@
 import { Button, StyleSheet, Text, View } from 'react-native';
+import { signOut } from '../api/auth';
 import { useUserState } from '../contexts/UserContext';
 
 const ProfileScreen = () => {
-  const [, setUser] = useUserState();
+  const [user, setUser] = useUserState();
+  console.log(user.uid, user.email, user.displayName, user.photoURL);
 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>ProfileScreen</Text>
-      <Button title={'signout'} onPress={() => setUser({})} />
+      <Button
+        title={'signout'}
+        onPress={async () => {
+          await signOut();
+          setUser({});
+        }}
+      />
     </View>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -22,5 +29,4 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
 });
-
 export default ProfileScreen;
