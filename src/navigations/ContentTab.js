@@ -20,9 +20,10 @@ const ContentTab = () => {
       initialRouteName={ContentRoutes.HOME}
       screenOptions={{
         headerShown: false,
+        //
         tabBarActiveTintColor: PRIMARY.DARK,
         tabBarInactiveTintColor: GRAY.DARK,
-        tabBarShowLabel: false,
+        // tabBarShowLabel: false,
       }}
     >
       <Tab.Screen
@@ -30,6 +31,7 @@ const ContentTab = () => {
         component={HomeScreen}
         options={{
           tabBarIcon: (props) => getTabBarIcon({ ...props, name: 'home' }),
+          tabBarLabel: 'Home',
         }}
       />
       <Tab.Screen
@@ -37,6 +39,7 @@ const ContentTab = () => {
         component={ListScreen}
         options={{
           tabBarIcon: (props) => getTabBarIcon({ ...props, name: 'post' }),
+          tabBarLabel: 'Post',
         }}
       />
       <Tab.Screen
@@ -44,6 +47,7 @@ const ContentTab = () => {
         component={MapScreen}
         options={{
           tabBarIcon: (props) => getTabBarIcon({ ...props, name: 'map' }),
+          tabBarLabel: 'Map',
         }}
       />
       <Tab.Screen
@@ -51,6 +55,7 @@ const ContentTab = () => {
         component={ProfileScreen}
         options={{
           tabBarIcon: (props) => getTabBarIcon({ ...props, name: 'account' }),
+          tabBarLabel: 'MyPage',
         }}
       />
     </Tab.Navigator>
