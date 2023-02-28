@@ -1,10 +1,19 @@
+import { useNavigation } from '@react-navigation/native';
 import { StyleSheet, Text, View } from 'react-native';
 import { WHITE } from '../colors';
+import Button from '../components/Button';
+import { MainRoutes } from '../navigations/routes';
 
 const HomeScreen = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>HomeScreen</Text>
+      <Button 
+      title={'select'}
+      onPress={()=> navigation.navigate(MainRoutes.SELECT_PHOTOS)}
+      />
     </View>
   );
 };

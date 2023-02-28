@@ -23,6 +23,7 @@ const ContentTab = () => {
         //
         tabBarActiveTintColor: PRIMARY.DARK,
         tabBarInactiveTintColor: GRAY.DARK,
+        // 탭 버튼 라벨 표시 여부
         // tabBarShowLabel: false,
       }}
     >
