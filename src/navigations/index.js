@@ -6,8 +6,14 @@ import AuthStack from './AuthStack';
 import { Asset } from 'expo-asset';
 import { initFirebase } from '../api/firebase';
 import * as SplashScreen from 'expo-splash-screen';
-import ContentTab from './ContentTab';
 import MainStack from './MainStack';
+
+const ImageAssets = [
+  require('../../assets/main.png'),
+  require('../../assets/home-clock.png'),
+  require('../../assets/home-map.png'),
+  require('../../assets/icon.png')
+]
 
 const Navigation = () => {
   const [user, setUser] = useUserState();
@@ -17,9 +23,10 @@ const Navigation = () => {
     (async () => {
       try {
         await SplashScreen.preventAutoHideAsync();
-        await Asset.fromModule(
-          require('../../assets/main.png')
-        ).downloadAsync();
+        await Promise.all(
+          ImageAssets.map((image) => 
+          Asset.fromModule(image).downloadAsync())
+        );
 
         initFirebase();
 
